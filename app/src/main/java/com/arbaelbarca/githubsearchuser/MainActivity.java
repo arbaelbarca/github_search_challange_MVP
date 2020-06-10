@@ -121,7 +121,6 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         rvListUser.setLayoutManager(linearLayoutManager);
         rvListUser.setHasFixedSize(true);
 
-//        setupPagination();
     }
 
     @Override
@@ -157,39 +156,6 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         presenter.onDestroy();
     }
 
-//    private void setupPagination() {
-//        rvListUser.addOnScrollListener(new PaginationScrollListener(linearLayoutManager) {
-//            @Override
-//            public int getTotalPageCount() {
-//                return per_page;
-//            }
-//
-//            @Override
-//            protected void loadMoreItems() {
-//                isLoading = true;
-//                currentPage++;
-//
-//                new Handler().postDelayed(() -> loadNextPage(), 1000);
-//            }
-//
-//            @Override
-//            public boolean isLastPage() {
-//                return isLastPage;
-//
-//            }
-//
-//            @Override
-//            public boolean isLoading() {
-//                return isLoading;
-//            }
-//        });
-//    }
-
-    void loadNextPage() {
-        adapterListUser.addLoadingFooter();
-        presenter.refreshData(getTextSearch, String.valueOf(currentPage), isLoading);
-        isLoading = false;
-    }
 
     @Override
     public void onClick(View view) {
