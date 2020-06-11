@@ -1,9 +1,6 @@
 package com.arbaelbarca.githubsearchuser.view;
 
-import android.app.LauncherActivity;
-
 import com.arbaelbarca.githubsearchuser.model.ItemsItem;
-import com.arbaelbarca.githubsearchuser.model.ModelListUser;
 
 import java.util.ArrayList;
 

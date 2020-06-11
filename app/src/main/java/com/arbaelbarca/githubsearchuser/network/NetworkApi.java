@@ -1,7 +1,5 @@
 package com.arbaelbarca.githubsearchuser.network;
 
-import android.content.Context;
-
 import com.arbaelbarca.githubsearchuser.utils.Constants;
 
 import java.io.IOException;
@@ -29,19 +27,18 @@ public class NetworkApi implements Interceptor {
                 .build();
 
         apiServices = retrofit.create(ApiServices.class);
-
     }
 
 
-    public NetworkApi(String user, String password) {
-        this.credentials = Credentials.basic(user, password);
+    public NetworkApi(String clientId, String secretId) {
+        this.credentials = Credentials.basic(clientId, secretId);
     }
 
 
     private static OkHttpClient provideOkHttpClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(getLoggingInterceptor())
-                .addInterceptor(new NetworkApi("arbaelbarca", "Hananayo354313"))
+                .addInterceptor(new NetworkApi("08dbcebff49a7da24988", "48c6174c28444775a8cb5028013dc552fa654799"))
                 .readTimeout(15, TimeUnit.SECONDS)
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)

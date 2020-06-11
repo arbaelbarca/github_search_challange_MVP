@@ -21,6 +21,7 @@ import com.arbaelbarca.githubsearchuser.model.ItemsItem;
 import com.arbaelbarca.githubsearchuser.onclick.OnClickItem;
 import com.arbaelbarca.githubsearchuser.presenter.ListPresenterImpl;
 import com.arbaelbarca.githubsearchuser.presenter.ListUserPresenter;
+import com.arbaelbarca.githubsearchuser.utils.LineItemDivider;
 import com.arbaelbarca.githubsearchuser.view.MainContract;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     ListUserPresenter presenter;
     AdapterListUser adapterListUser;
-    MainContract.MainView mainView;
+    MainContract.MainView umainView;
 
     @BindView(R.id.txtSearchUser)
     EditText txtSearchUser;
@@ -120,8 +121,8 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         linearLayoutManager = new LinearLayoutManager(this);
         rvListUser.setLayoutManager(linearLayoutManager);
         rvListUser.setHasFixedSize(true);
+        rvListUser.addItemDecoration(new LineItemDivider(this));
 
-//        setupPagination();
     }
 
     @Override
@@ -157,39 +158,6 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         presenter.onDestroy();
     }
 
-//    private void setupPagination() {
-//        rvListUser.addOnScrollListener(new PaginationScrollListener(linearLayoutManager) {
-//            @Override
-//            public int getTotalPageCount() {
-//                return per_page;
-//            }
-//
-//            @Override
-//            protected void loadMoreItems() {
-//                isLoading = true;
-//                currentPage++;
-//
-//                new Handler().postDelayed(() -> loadNextPage(), 1000);
-//            }
-//
-//            @Override
-//            public boolean isLastPage() {
-//                return isLastPage;
-//
-//            }
-//
-//            @Override
-//            public boolean isLoading() {
-//                return isLoading;
-//            }
-//        });
-//    }
-
-    void loadNextPage() {
-        adapterListUser.addLoadingFooter();
-        presenter.refreshData(getTextSearch, String.valueOf(currentPage), isLoading);
-        isLoading = false;
-    }
 
     @Override
     public void onClick(View view) {
