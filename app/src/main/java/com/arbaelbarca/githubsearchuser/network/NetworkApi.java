@@ -41,7 +41,7 @@ public class NetworkApi implements Interceptor {
     private static OkHttpClient provideOkHttpClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(getLoggingInterceptor())
-                .addInterceptor(new NetworkApi("arbaelbarca", "Hananayo354313"))
+                .addInterceptor(new NetworkApi("isis username github", "issi password github"))
                 .readTimeout(15, TimeUnit.SECONDS)
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
